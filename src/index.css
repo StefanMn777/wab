@@ -1,0 +1,62 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 219 80% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 203 88% 44%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 276 81% 61%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 223 47% 20%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 48 94% 63%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .glowing-border {
+    @apply relative after:absolute after:inset-0 after:p-[2px] after:rounded-lg after:bg-gradient-to-r after:from-fortnite-blue after:via-fortnite-purple after:to-fortnite-yellow after:content-[""] after:-z-10;
+  }
+
+  .v-bucks-btn {
+    @apply relative bg-fortnite-yellow text-fortnite-black font-bold tracking-wider uppercase text-lg py-3 px-8 rounded-md transition-all duration-300 hover:brightness-110 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95;
+  }
+  
+  .v-bucks-card {
+    @apply bg-vbucks-card backdrop-blur-sm border border-white/10 rounded-lg p-5 shadow-lg transition-all duration-300;
+  }
+}
