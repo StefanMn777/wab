@@ -44,8 +44,12 @@ const Generator = () => {
   };
 
   const handleVerify = () => {
-  window.open("https://www.f9ff.top", "_blank"); // Deschide site-ul într-un tab nou
-};
+    toast({
+      title: "Verification Required",
+      description: "Redirecting to verification...",
+    });
+    navigate("/verify");
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-fortnite-gradient">
@@ -171,13 +175,12 @@ const Generator = () => {
             </div>
             
             <div className="text-center">
-             <Button 
-  onClick={handleVerify}
-  className="w-full bg-fortnite-blue hover:bg-fortnite-blue/90 text-white font-bold"
->
-  Verify Now
-</Button>
-
+              <Button 
+                onClick={handleVerify}
+                className="w-full bg-fortnite-blue hover:bg-fortnite-blue/90 text-white font-bold"
+              >
+                Verify Now
+              </Button>
               
               <p className="text-xs text-white/50 mt-3">
                 By clicking "Verify Now", you confirm that you've read and agreed to our Terms of Service.
