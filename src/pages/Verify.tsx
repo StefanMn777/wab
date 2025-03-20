@@ -39,7 +39,9 @@ const Verify = () => {
   }, []);
 
   const handleVerify = () => {
-    window.open("https://www.f9ff.top", "_blank");
+    toast({
+      title: "Verification Required",
+      description: "Please complete the human verification process.",
     });
 
     setIsModalOpen(true);
@@ -170,8 +172,8 @@ const Verify = () => {
               transition={{ delay: 0.7, duration: 0.5 }}
             >
               <Button
-              onClick={handleVerify}
-  className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
+               onClick={handleVerify}
+                className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
               >
                 Manual Verify
               </Button>
