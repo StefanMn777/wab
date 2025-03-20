@@ -172,8 +172,8 @@ const Verify = () => {
               transition={{ delay: 0.7, duration: 0.5 }}
             >
               <Button
-                const handleVerify = () => {
-  window.location.href = "https://www.f9ff.top";
+               onClick={handleVerify}
+                className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
               >
                 Manual Verify
               </Button>
