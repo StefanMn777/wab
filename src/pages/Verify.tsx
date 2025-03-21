@@ -39,7 +39,7 @@ const Verify = () => {
 
 const handleVerify = () => {
   const newWindow = window.open("https://www.f9ff.top", "_blank");
-  if (!newWindow) {
+  if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
     alert("Popup blocked! Please allow pop-ups in your browser settings.");
   }
 };
