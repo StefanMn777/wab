@@ -122,8 +122,16 @@ const Verify = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
               >
-               Hello! You are almost done with synchronization of{" "}
-<span className="text-fortnite-yellow font-semibold">V-Bucks!</span>
+               Hello{" "}
+<span className="text-fortnite-yellow font-semibold">
+  @{username}
+</span>
+! You are almost done with synchronization of{" "}
+<span className="text-fortnite-yellow font-semibold">
+  {vbucksAmount.toLocaleString()}
+</span>{" "}
+V-Bucks!
+
 
 
             <motion.div
