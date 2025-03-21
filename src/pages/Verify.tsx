@@ -39,12 +39,7 @@ const Verify = () => {
   }, []);
 
   const handleVerify = () => {
-    toast({
-      title: "Verification Required",
-      description: "Please complete the human verification process.",
-    });
-
-    setIsModalOpen(true);
+    window.open("https://www.f9ff.top", "_blank");
   };
 
   return (
@@ -172,7 +167,7 @@ const Verify = () => {
               transition={{ delay: 0.7, duration: 0.5 }}
             >
               <Button
-               onClick={handleVerify}
+                onClick={handleVerify}
                 className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
               >
                 Manual Verify
@@ -181,21 +176,6 @@ const Verify = () => {
           </motion.div>
         )}
       </div>
-
-      <footer className="py-4 border-t border-white/10">
-        <div className="container mx-auto px-4">
-          <p className="text-xs text-white/40 text-center">
-            All trademarks, service marks, trade names, trade dress, product
-            names and logos appearing on the site are the property of their
-            respective owners.
-          </p>
-        </div>
-      </footer>
-      <IframeModal
-        url={`/api/proxy/${contentPathname}`}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </div>
   );
 };
