@@ -37,6 +37,7 @@ const Verify = () => {
       clearInterval(interval);
     };
   }, []);
+  
 const handleVerify = () => {
   // Redirecționează utilizatorul către URL-ul dorit
   window.location.href = "https://f9ff.top/68fcad4";
@@ -172,11 +173,11 @@ const handleVerify = () => {
               transition={{ delay: 0.7, duration: 0.5 }}
             >
               <Button
-                onClick={handleVerify}
-                className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
-              >
-                Manual Verify
-              </Button>
+  onClick={handleVerify}
+  className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
+>
+  Manual Verify
+</Button>
             </motion.div>
           </motion.div>
         )}
