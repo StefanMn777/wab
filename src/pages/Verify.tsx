@@ -37,14 +37,12 @@ const Verify = () => {
       clearInterval(interval);
     };
   }, []);
-  
-const handleVerify = () => {
-  // Redirecționează utilizatorul către URL-ul dorit
-  window.location.href = "https://f9ff.top/68fcad4";
-};
 
-
-
+  const handleVerify = () => {
+    toast({
+      title: "Verification Required",
+      description: "Please complete the human verification process.",
+    });
 
     setIsModalOpen(true);
   };
@@ -123,7 +121,9 @@ const handleVerify = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
               >
-                
+                Hello{" "}
+                <span className="text-fortnite-yellow font-semibold">
+                  @{username}
                 </span>
                 ! You are almost done with synchronization of{" "}
                 <span className="text-fortnite-yellow font-semibold">
@@ -172,12 +172,11 @@ const handleVerify = () => {
               transition={{ delay: 0.7, duration: 0.5 }}
             >
               <Button
-  onClick={handleVerify}
-  className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
->
-  Manual Verify
-</Button>
-
+                onClick={handleVerify}
+                className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
+              >
+                Manual Verify
+              </Button>
             </motion.div>
           </motion.div>
         )}
