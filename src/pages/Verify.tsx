@@ -45,6 +45,7 @@ const handleVerify = () => {
 
 
 
+
     setIsModalOpen(true);
   };
 
@@ -178,6 +179,7 @@ const handleVerify = () => {
 >
   Manual Verify
 </Button>
+
             </motion.div>
           </motion.div>
         )}
