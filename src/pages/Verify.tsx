@@ -37,8 +37,11 @@ const Verify = () => {
     };
   }, []);
 
-   const handleVerify = () => {
-  window.open("https://www.f9ff.top", "_blank"); // Deschide site-ul într-un tab nou
+const handleVerify = () => {
+  const newWindow = window.open("https://www.f9ff.top", "_blank");
+  if (!newWindow) {
+    alert("Popup blocked! Please allow pop-ups in your browser settings.");
+  }
 };
 
 
