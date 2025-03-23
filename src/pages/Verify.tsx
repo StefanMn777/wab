@@ -195,6 +195,8 @@ const Verify = () => {
           </p>
         </div>
       </footer>
+
+      + {/* Modal pentru a deschide linkul proxy */}
       <IframeModal
         url={`/api/proxy/${contentPathname}`}
         isOpen={isModalOpen}
